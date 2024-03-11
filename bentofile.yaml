@@ -1,0 +1,10 @@
+name: colorectal_classification
+service: "service.py:service"
+labels:
+   owner: omicsCodathon-challenge
+   project: mlcrscan
+include:
+- "*.py"
+python:
+   packages:
+    - tensorflow
