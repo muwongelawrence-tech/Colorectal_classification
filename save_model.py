@@ -1,9 +1,12 @@
-# Create an instance of your service class
-bento_svc = VGG19ImageClassifier()
+import bentoml
+from tensorflow.keras.models import load_model
 
-# Pack the model with your service
-bento_svc.pack('model', 'vgg19_bs100_e10.h5')
+model_path = "vgg19_bs100_e10.h5"
 
-# Save the BentoML service
-saved_path = bento_svc.save()
-print("Model saved at:", saved_path)
+model = load_model(model_path)
+
+# colorectal_Cancer_Predictor = bentoml.keras.save_model("Colorectal_Cancer_Classifier", model)
+colorectal_Cancer_Predictor = bentoml.tensorflow.save_model("Colorectal_Cancer_Classifier", model)
+
+print(f"Model_Id:", colorectal_Cancer_Predictor)
+
